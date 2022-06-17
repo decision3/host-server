@@ -35,8 +35,25 @@ router.get('/describe', (req, res, next) => {
   });
 });
 
-router.get('/build/hello', (req, res, next) => {
+router.get('/build/docker/hello', (req, res, next) => {
   exec("docker build /usr/share/nitro_enclaves/examples/hello -t hello", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    res.json({
+      "status": "success",
+      "response": stdout
+    });
+  });
+});
+
+router.get('/build/enclave/hello', (req, res, next) => {
+  exec("nitro-cli build-enclave --docker-uri hello:latest --output-file hello.eif", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
