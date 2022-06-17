@@ -46,7 +46,7 @@ router.get('/build/hello', (req, res, next) => {
         return;
     }
     res.json({
-      "status": success,
+      "status": "success",
       "response": stdout
     });
   });
