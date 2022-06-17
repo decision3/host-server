@@ -6,12 +6,14 @@ const router = express.Router();
 router.get('/version', (req, res, next) => {
   exec("nitro-cli --version", (error, stdout, stderr) => {
     if (error) {
-        console.log(`error: ${error.message}`);
-        return;
+      res.json({
+        "error": error.message
+      });
     }
     if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
+        res.json({
+          "error": stderr
+        });
     }
     res.json({
       "version": stdout
@@ -22,12 +24,14 @@ router.get('/version', (req, res, next) => {
 router.get('/describe', (req, res, next) => {
   exec("nitro-cli describe-enclaves", (error, stdout, stderr) => {
     if (error) {
-        console.log(`error: ${error.message}`);
-        return;
+      res.json({
+        "error": error.message
+      });
     }
     if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
+        res.json({
+          "error": stderr
+        });
     }
     res.json({
       "description": stdout
@@ -38,12 +42,14 @@ router.get('/describe', (req, res, next) => {
 router.get('/build/docker/hello', (req, res, next) => {
   exec("docker build /usr/share/nitro_enclaves/examples/hello -t hello", (error, stdout, stderr) => {
     if (error) {
-        console.log(`error: ${error.message}`);
-        return;
+      res.json({
+        "error": error.message
+      });
     }
     if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
+        res.json({
+          "error": stderr
+        });
     }
     res.json({
       "status": "success",
@@ -55,12 +61,14 @@ router.get('/build/docker/hello', (req, res, next) => {
 router.get('/build/enclave/hello', (req, res, next) => {
   exec("nitro-cli build-enclave --docker-uri hello:latest --output-file hello.eif", (error, stdout, stderr) => {
     if (error) {
-        console.log(`error: ${error.message}`);
-        return;
+      res.json({
+        "error": error.message
+      });
     }
     if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
+        res.json({
+          "error": stderr
+        });
     }
     res.json({
       "status": "success",
