@@ -9,11 +9,13 @@ router.get('/version', (req, res, next) => {
       res.json({
         "error": error.message
       });
+      return;
     }
     if (stderr) {
-        res.json({
-          "error": stderr
-        });
+      res.json({
+        "error": stderr
+      });
+      return;
     }
     res.json({
       "version": stdout
@@ -27,11 +29,13 @@ router.get('/describe', (req, res, next) => {
       res.json({
         "error": error.message
       });
+      return;
     }
     if (stderr) {
-        res.json({
-          "error": stderr
-        });
+      res.json({
+        "error": stderr
+      });
+      return;
     }
     res.json({
       "description": stdout
@@ -45,11 +49,13 @@ router.get('/build/docker/hello', (req, res, next) => {
       res.json({
         "error": error.message
       });
+      return;
     }
     if (stderr) {
-        res.json({
-          "error": stderr
-        });
+      res.json({
+        "error": stderr
+      });
+      return;
     }
     res.json({
       "status": "success",
@@ -64,11 +70,13 @@ router.get('/build/enclave/hello', (req, res, next) => {
       res.json({
         "error": error.message
       });
+      return;
     }
     if (stderr) {
-        res.json({
-          "error": stderr
-        });
+      res.json({
+        "error": stderr
+      });
+      return;
     }
     res.json({
       "status": "success",
