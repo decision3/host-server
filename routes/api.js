@@ -64,7 +64,7 @@ router.post('/container', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": JSON.parse(stdout)
+      "response": stdout
     });
   });
 });
@@ -86,7 +86,7 @@ router.post('/enclave', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": JSON.parse(stdout)
+      "response": stdout
     });
   });
 });
@@ -108,7 +108,7 @@ router.post('/enclave/run', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": JSON.parse(stdout)
+      "response": stdout
     });
   });
 });
