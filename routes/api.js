@@ -85,4 +85,25 @@ router.post('/enclave', (req, res, next) => {
   });
 });
 
+router.post('/enclave/run', (req, res, next) => {
+  exec("nitro-cli run-enclave --cpu-count 2 --memory 512 --enclave-cid 16 --eif-path hello.eif --debug-mode", (error, stdout, stderr) => {
+    if (error) {
+      res.json({
+        "error": error.message
+      });
+      return;
+    }
+    if (stderr) {
+      res.json({
+        "error": stderr
+      });
+      return;
+    }
+    res.json({
+      "status": "success",
+      "response": stdout
+    });
+  });
+});
+
 module.exports = router;
