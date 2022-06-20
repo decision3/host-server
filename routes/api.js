@@ -18,8 +18,9 @@ router.get('/version', (req, res, next) => {
       });
       return;
     }
-    res.json({
-      "status": res.status(200),
+    res
+    .status(200)
+    .json({
       "version": stdout
     });
   });
