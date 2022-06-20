@@ -40,8 +40,9 @@ router.get('/describe', (req, res, next) => {
       });
       return;
     }
-    res.json({
-      "status": res.status(200),
+    res
+    .status(200)
+    .json({
       "description": JSON.parse(stdout)
     });
   });
@@ -61,8 +62,9 @@ router.post('/container', (req, res, next) => {
       });
       return;
     }
-    res.json({
-      "status": res.status(200),
+    res
+    .status(200)
+    .json({
       "response": JSON.parse(stdout)
     });
   });
@@ -82,8 +84,9 @@ router.post('/enclave', (req, res, next) => {
       });
       return;
     }
-    res.json({
-      "status": res.status(200),
+    res
+    .status(200)
+    .json({
       "response": JSON.parse(stdout)
     });
   });
@@ -103,8 +106,9 @@ router.post('/enclave/run', (req, res, next) => {
       });
       return;
     }
-    res.json({
-      "status": res.status(200),
+    res
+    .status(200)
+    .json({
       "response": JSON.parse(stdout)
     });
   });
