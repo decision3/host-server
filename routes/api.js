@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.get('/version', (req, res, next) => {
   exec("nitro-cli --version", (error, stdout, stderr) => {
+    console.log("I am in version")
     if (error) {
       res.json({
         "error": error.message
