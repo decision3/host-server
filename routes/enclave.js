@@ -10,7 +10,7 @@ router.post('/configure', (req, res, next) => {
 
   var cmdObj = backend.dockerConfigure;
 
-  config = req.body;
+  // config = req.body;
 
   cmdObj.arguments.cmd = config.cmd;
   cmdObj.arguments.email = config.email;
