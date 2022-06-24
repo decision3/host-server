@@ -133,7 +133,7 @@ router.post('/run', (req, res, next) => {
 });
 
 router.post('/terminate', (req, res, next) => {
-  var cmdObj = backend.enclaveRun;
+  var cmdObj = backend.enclaveTerminate;
   var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
