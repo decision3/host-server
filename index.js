@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const router = Router();
+const router = express.Router();
 
 // Importing routes
 const enclavesRoute = require('routes/enclaves.js');
