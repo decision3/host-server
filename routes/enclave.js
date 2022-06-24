@@ -78,26 +78,21 @@ router.post('/build', (req, res, next) => {
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
-      res
-      .status(500)
-      .json({
-        "error": error.message
-      });
+      if (!stderr) {
+        res
+        .status(200)
+        .json({
+          "response": "Generated enclave image"
+        });
+      } else {
+        res
+        .status(500)
+        .json({
+          "error": stderr
+        });
+      }
       return;
     }
-    if (stderr) {
-      res
-      .status(500)
-      .json({
-        "error": stderr
-      });
-      return;
-    }
-    res
-    .status(200)
-    .json({
-      "response": "Generated enclave image"
-    });
   });
 });
 
@@ -107,26 +102,21 @@ router.post('/run', (req, res, next) => {
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
-      res
-      .status(500)
-      .json({
-        "error": error.message
-      });
+      if (!stderr) {
+        res
+        .status(200)
+        .json({
+          "response": "Running enclave"
+        });
+      } else {
+        res
+        .status(500)
+        .json({
+          "error": stderr
+        });
+      }
       return;
     }
-    if (stderr) {
-      res
-      .status(500)
-      .json({
-        "error": stderr
-      });
-      return;
-    }
-    res
-    .status(200)
-    .json({
-      "response": "Enclave started"
-    });
   });
 });
 
@@ -137,26 +127,21 @@ router.post('/terminate', (req, res, next) => {
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
-      res
-      .status(500)
-      .json({
-        "error": error.message
-      });
+      if (!stderr) {
+        res
+        .status(200)
+        .json({
+          "response": "Terminated enclave"
+        });
+      } else {
+        res
+        .status(500)
+        .json({
+          "error": stderr
+        });
+      }
       return;
     }
-    if (stderr) {
-      res
-      .status(500)
-      .json({
-        "error": stderr
-      });
-      return;
-    }
-    res
-    .status(200)
-    .json({
-      "response": "Enclave terminated"
-    });
   });
 });
 
