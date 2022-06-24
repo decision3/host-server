@@ -8,7 +8,7 @@ const enclave_path = './enclave/'+config.backend+"/";
 
 router.post('/configure', (req, res, next) => {
 
-  console.log(req.body);
+  console.log(req);
 
   var cmdObj = backend.dockerConfigure;
 
