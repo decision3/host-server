@@ -17,13 +17,17 @@ router.post('/configure', (req, res, next) => {
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
-      res.json({
+      res
+      .status(500)
+      .json({
         "error": error.message
       });
       return;
     }
     if (stderr) {
-      res.json({
+      res
+      .status(500)
+      .json({
         "error": stderr
       });
       return;
