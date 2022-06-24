@@ -21,7 +21,7 @@
     "entrypoint": "nitro-cli build-enclave",
     "arguments": {
       "docker-uri": "decision3/d3:latest",
-      "output-file": "d3_enclave.eif"
+      "output-file": "./enclave/nitro/d3_enclave.eif"
     }
   },
   "enclaveRun": {
@@ -29,7 +29,7 @@
     "arguments": {
        "cpu-count": 2,
        "memory": 3072,
-       "eif-path": "d3_enclave.eif",
+       "eif-path": "./enclave/nitro/d3_enclave.eif",
        "debug-mode": true,
        "enclave-cid": 12
      }
