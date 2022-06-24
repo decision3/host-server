@@ -7,9 +7,9 @@ RUN mkdir -p /root/.ssh
 RUN chmod 0700 /root/.ssh
 
 # Copy util scripts and secrets
-COPY ./install_gh_cli_ubuntu.sh ./
-COPY ./secrets/github.token ./
-COPY ./add_key_github.sh ./
+COPY ./enclave/nitro/install_gh_cli_ubuntu.sh ./
+COPY ./enclave/nitro/secrets/github.token ./
+COPY ./enclave/nitro/add_key_github.sh ./
 
 # Get packages
 RUN apt-get update
