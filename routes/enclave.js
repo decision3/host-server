@@ -15,8 +15,6 @@ router.post('/configure', (req, res, next) => {
   cmdObj.arguments.token = config.token;
 
   var command = enclave_path + utils.createCommand(cmdObj);
-
-  console.log(command);
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
@@ -135,6 +133,7 @@ router.post('/run', (req, res, next) => {
 router.post('/terminate', (req, res, next) => {
   var cmdObj = backend.enclaveTerminate;
   var command = utils.createCommand(cmdObj);
+  console.log(command)
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
