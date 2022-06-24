@@ -123,7 +123,6 @@ router.post('/run', (req, res, next) => {
 router.post('/terminate', (req, res, next) => {
   var cmdObj = backend.enclaveTerminate;
   var command = utils.createCommand(cmdObj);
-  console.log(command)
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
