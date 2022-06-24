@@ -2,15 +2,15 @@ const express = require('express');
 const router = express.Router();
 const { exec } = require("child_process");
 const utils = require('../utils.js');
-const config = require("../config.json");
+var config = require("../config.json");
 const backend = require("../backend/" + config.backend)
 const enclave_path = './enclave/'+config.backend+"/";
 
 router.post('/configure', (req, res, next) => {
 
-  console.log(req);
-
   var cmdObj = backend.dockerConfigure;
+
+  config = req.body;
 
   cmdObj.arguments.cmd = config.cmd;
   cmdObj.arguments.email = config.email;
