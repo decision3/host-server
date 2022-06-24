@@ -36,7 +36,123 @@ router.post('/configure', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": "Dockerfile configured ..."
+      "response": "Dockerfile configured"
+    });
+  });
+});
+
+router.post('/image', (req, res, next) => {
+  var cmdObj = backend.dockerBuild;
+  var command = enclave_path + utils.createCommand(cmdObj);
+  
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      res
+      .status(500)
+      .json({
+        "error": error.message
+      });
+      return;
+    }
+    if (stderr) {
+      res
+      .status(500)
+      .json({
+        "error": stderr
+      });
+      return;
+    }
+    res
+    .status(200)
+    .json({
+      "response": "Generated docker image"
+    });
+  });
+});
+
+router.post('/build', (req, res, next) => {
+  var cmdObj = backend.enclaveBuild;
+  var command = enclave_path + utils.createCommand(cmdObj);
+  
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      res
+      .status(500)
+      .json({
+        "error": error.message
+      });
+      return;
+    }
+    if (stderr) {
+      res
+      .status(500)
+      .json({
+        "error": stderr
+      });
+      return;
+    }
+    res
+    .status(200)
+    .json({
+      "response": "Generated enclave image"
+    });
+  });
+});
+
+router.post('/run', (req, res, next) => {
+  var cmdObj = backend.enclaveRun;
+  var command = enclave_path + utils.createCommand(cmdObj);
+  
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      res
+      .status(500)
+      .json({
+        "error": error.message
+      });
+      return;
+    }
+    if (stderr) {
+      res
+      .status(500)
+      .json({
+        "error": stderr
+      });
+      return;
+    }
+    res
+    .status(200)
+    .json({
+      "response": "Enclave started"
+    });
+  });
+});
+
+router.post('/terminate', (req, res, next) => {
+  var cmdObj = backend.enclaveRun;
+  var command = enclave_path + utils.createCommand(cmdObj);
+  
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      res
+      .status(500)
+      .json({
+        "error": error.message
+      });
+      return;
+    }
+    if (stderr) {
+      res
+      .status(500)
+      .json({
+        "error": stderr
+      });
+      return;
+    }
+    res
+    .status(200)
+    .json({
+      "response": "Enclave terminated"
     });
   });
 });
