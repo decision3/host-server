@@ -78,7 +78,9 @@ router.post('/build', (req, res, next) => {
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
+      console.log("am in error");
       if (!stderr) {
+        console.log("am in not stderr")
         res
         .status(200)
         .json({
@@ -86,6 +88,7 @@ router.post('/build', (req, res, next) => {
         });
         return;
       } else {
+        console.log("am in stderr")
         res
         .status(500)
         .json({
