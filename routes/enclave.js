@@ -43,6 +43,8 @@ router.post('/configure', (req, res, next) => {
 
 router.post('/image', (req, res, next) => {
   var cmdObj = backend.dockerBuild;
+  cmdObj.arguments.file = enclave_path + 'Dockerfile';
+
   var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
