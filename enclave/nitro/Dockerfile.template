@@ -1,0 +1,27 @@
+# Fetch ubuntu
+FROM ubuntu:bionic
+
+WORKDIR /home
+
+RUN mkdir -p /root/.ssh
+RUN chmod 0700 /root/.ssh
+
+# Copy util scripts and secrets
+COPY ./install_gh_cli_ubuntu.sh ./
+COPY ./secrets/github.token ./
+COPY ./add_key_github.sh ./
+
+# Get packages
+RUN apt-get update
+RUN apt-get install wget -y
+RUN apt-get install git -y
+RUN apt-get install python3 -y
+RUN apt-get install -f -y
+
+# auth github
+RUN chmod 777 ./install_gh_cli_ubuntu.sh
+RUN chmod 777 ./add_key_github.sh
+RUN ./install_gh_cli_ubuntu.sh
+RUN ./add_key_github.sh _email _repo
+
+CMD _cmd
