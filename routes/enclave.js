@@ -84,14 +84,15 @@ router.post('/build', (req, res, next) => {
         .json({
           "response": "Generated enclave image"
         });
+        return;
       } else {
         res
         .status(500)
         .json({
           "error": stderr
         });
+        return;
       }
-      return;
     }
   });
 });
@@ -108,14 +109,15 @@ router.post('/run', (req, res, next) => {
         .json({
           "response": "Running enclave"
         });
+        return;
       } else {
         res
         .status(500)
         .json({
           "error": stderr
         });
+        return;
       }
-      return;
     }
   });
 });
@@ -132,14 +134,15 @@ router.post('/terminate', (req, res, next) => {
         .json({
           "response": "Terminated enclave"
         });
+        return;
       } else {
         res
         .status(500)
         .json({
           "error": stderr
         });
+        return;
       }
-      return;
     }
   });
 });
