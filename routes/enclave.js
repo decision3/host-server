@@ -7,6 +7,9 @@ const backend = require("../backend/" + config.backend)
 const enclave_path = './enclave/'+config.backend+"/";
 
 router.post('/configure', (req, res, next) => {
+
+  console.log(req.body);
+
   var cmdObj = backend.dockerConfigure;
 
   cmdObj.arguments.cmd = config.cmd;
