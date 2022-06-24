@@ -77,10 +77,6 @@ router.post('/build', (req, res, next) => {
   var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
-    
-    console.log(error, stdout, stderr);
-    res.json({"response": "ok"});
-
     if (stdout) {
       if (!stderr) {
         res
