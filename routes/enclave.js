@@ -67,7 +67,7 @@ router.post('/image', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": "Generated docker image"
+      "response": "Docker image generated"
     });
   });
 });
@@ -78,21 +78,12 @@ router.post('/build', (req, res, next) => {
   
   exec(command, (error, stdout, stderr) => {
     if (stdout) {
-      if (!stderr) {
-        res
-        .status(200)
-        .json({
-          "response": "Generated enclave image"
-        });
-        return;
-      } else {
-        res
-        .status(500)
-        .json({
-          "error": stderr
-        });
-        return;
-      }
+      res
+      .status(200)
+      .json({
+        "response": "Enclave image generated"
+      });
+      return;
     }
   });
 });
@@ -103,21 +94,12 @@ router.post('/run', (req, res, next) => {
   
   exec(command, (error, stdout, stderr) => {
     if (stdout) {
-      if (!stderr) {
-        res
-        .status(200)
-        .json({
-          "response": "Running enclave"
-        });
-        return;
-      } else {
-        res
-        .status(500)
-        .json({
-          "error": stderr
-        });
-        return;
-      }
+      res
+      .status(200)
+      .json({
+        "response": "Enclave running"
+      });
+      return;
     }
   });
 });
@@ -128,21 +110,12 @@ router.post('/terminate', (req, res, next) => {
   
   exec(command, (error, stdout, stderr) => {
     if (stdout) {
-      if (!stderr) {
-        res
-        .status(200)
-        .json({
-          "response": "Terminated enclave"
-        });
-        return;
-      } else {
-        res
-        .status(500)
-        .json({
-          "error": stderr
-        });
-        return;
-      }
+      res
+      .status(200)
+      .json({
+        "response": "Enclave terminated"
+      });
+      return;
     }
   });
 });
