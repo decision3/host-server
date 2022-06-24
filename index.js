@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const router = express.Router();
 
 // Importing routes
-const enclavesRoute = require('routes/enclaves.js');
+const enclavesRoute = require('./routes/enclave.js');
 
 const app = express();
 const port = process.env.PORT || 5000;
