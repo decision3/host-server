@@ -81,10 +81,8 @@ router.post('/build', (req, res, next) => {
     console.log(error, stdout, stderr);
     res.json({"response": "ok"});
 
-    if (error) {
-      console.log("am in error");
+    if (stdout) {
       if (!stderr) {
-        console.log("am in not stderr")
         res
         .status(200)
         .json({
@@ -92,7 +90,6 @@ router.post('/build', (req, res, next) => {
         });
         return;
       } else {
-        console.log("am in stderr")
         res
         .status(500)
         .json({
@@ -109,7 +106,7 @@ router.post('/run', (req, res, next) => {
   var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
-    if (error) {
+    if (stdout) {
       if (!stderr) {
         res
         .status(200)
@@ -134,7 +131,7 @@ router.post('/terminate', (req, res, next) => {
   var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
-    if (error) {
+    if (stdout) {
       if (!stderr) {
         res
         .status(200)
