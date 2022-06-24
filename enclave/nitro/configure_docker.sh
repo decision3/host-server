@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd enclave/nitro
+
 cmd=${cmd:-''}
 email=${email:-''}
 repo=${repo:-''}
@@ -16,7 +18,7 @@ done
 # setup docker file and secrets
 cp ./Dockerfile.template ./Dockerfile
 mkdir -p secrets
-rm secrets/github.token
+rm -f secrets/github.token
 touch ./secrets/github.token
 
 # assign values
