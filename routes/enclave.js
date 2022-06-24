@@ -4,6 +4,7 @@ const { exec } = require("child_process");
 const utils = require('../utils.js');
 const config = require("../config.json");
 const backend = require("../backend/" + config.backend)
+const enclave_path = '../enclave/'+backend+"/";
 
 router.post('/configure', (req, res, next) => {
   var cmdObj = backend.dockerConfigure;
@@ -13,7 +14,7 @@ router.post('/configure', (req, res, next) => {
   cmdObj.arguments.repo = config.repo;
   cmdObj.arguments.token = config.token;
 
-  var command = utils.createCommand(cmdObj);
+  var command = enclave_path + utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
