@@ -35,7 +35,7 @@
      }
   },   
   "enclaveTerminate": {
-    "entrypoint": "ENCLAVE_ID=$(nitro-cli describe-enclaves | jq -r \".[0].EnclaveID\") [ \"$ENCLAVE_ID\" != \"null\" ] && nitro-cli terminate-enclave",
+    "entrypoint": "ENCLAVE_ID=$(nitro-cli describe-enclaves | jq -r \".[0].EnclaveID\") && nitro-cli terminate-enclave",
     "arguments": {
       "enclave-id": "${ENCLAVE_ID}"
     }
