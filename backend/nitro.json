@@ -1,0 +1,46 @@
+{
+  "name": "nitro",
+  "pwd": "backend/nitro/",
+  "dockerConfigure": {
+    "entrypoint": "configure_docker.sh",
+    "arguments": {
+      "cmd": null,
+      "email": null,
+      "repo": null,
+      "token": null
+    }
+  },
+  "dockerBuild": {
+    "entrypoint": "docker build ./",
+    "arguments": {
+      "tag": "decision3/d3:latest"
+    }
+  },
+  "enclaveBuild": {
+    "entrypoint": "nitro-cli build-enclave",
+    "arguments": {
+      "docker-uri": "decision3/d3:latest",
+      "output-file": "d3_enclave.eif"
+    }
+  },
+  "enclaveRun": {
+    "entrypoint": "nitro-cli run-enclave",
+    "arguments": {
+       "cpu-count": 2,
+       "memory": 3072,
+       "eif-path": "d3_enclave.eif",
+       "debug-mode": true,
+       "enclave-cid": 12
+     }
+  },   
+  "enclaveId":{
+    "entrypoint": "ENCLAVE_ID=$(nitro-cli describe-enclaves | jq -r \".[0].EnclaveID\") [ \"$ENCLAVE_ID\" != \"null\" ]",
+    "arguments": null
+  },
+  "enclaveTerminate": {
+    "entrypoint": "nitro-cli console",
+    "arguments": {
+      "enclave-id": "${ENCLAVE_ID}"
+    }
+  }
+}

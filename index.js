@@ -1,6 +1,9 @@
 const express = require('express');
-const routes = require('./routes/api');
 const bodyParser = require('body-parser');
+const router = Router();
+
+// Importing routes
+const enclavesRoute = require('routes/enclaves.js');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -12,7 +15,9 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
-app.use('/api', routes);
+
+app.use('/enclaves', enclavesRoute);
+
 app.use((err, req, res, next) => {
   console.log(err);
   next();
