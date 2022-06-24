@@ -30,7 +30,7 @@
        "cpu-count": 2,
        "memory": 3072,
        "eif-path": "./enclave/nitro/d3_enclave.eif",
-       "debug-mode": true,
+       "debug-mode": "",
        "enclave-cid": 12
      }
   },   
