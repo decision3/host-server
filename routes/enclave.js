@@ -43,7 +43,7 @@ router.post('/configure', (req, res, next) => {
 
 router.post('/image', (req, res, next) => {
   var cmdObj = backend.dockerBuild;
-  var command = enclave_path + utils.createCommand(cmdObj);
+  var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
@@ -72,7 +72,7 @@ router.post('/image', (req, res, next) => {
 
 router.post('/build', (req, res, next) => {
   var cmdObj = backend.enclaveBuild;
-  var command = enclave_path + utils.createCommand(cmdObj);
+  var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
@@ -101,7 +101,7 @@ router.post('/build', (req, res, next) => {
 
 router.post('/run', (req, res, next) => {
   var cmdObj = backend.enclaveRun;
-  var command = enclave_path + utils.createCommand(cmdObj);
+  var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
@@ -130,7 +130,7 @@ router.post('/run', (req, res, next) => {
 
 router.post('/terminate', (req, res, next) => {
   var cmdObj = backend.enclaveRun;
-  var command = enclave_path + utils.createCommand(cmdObj);
+  var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
