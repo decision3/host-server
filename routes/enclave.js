@@ -39,7 +39,7 @@ router.post('/configure', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": "Dockerfile configured"
+      "response": "Container configured"
     });
   });
 });
@@ -70,7 +70,7 @@ router.post('/image', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": "Docker image generated"
+      "response": "Container image generated"
     });
   });
 });
