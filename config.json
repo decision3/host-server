@@ -1,4 +1,5 @@
 {
+    "platform": "AWS",
     "backend": "nitro",
     "email": "abhinit.ambastha@gmail.com",
     "repo": "ubuntu-python-server",
