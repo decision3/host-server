@@ -70,7 +70,7 @@ router.post('/image', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": "Container image generated"
+      "response": "Container image created"
     });
   });
 });
@@ -84,7 +84,7 @@ router.post('/build', (req, res, next) => {
       res
       .status(200)
       .json({
-        "response": "Enclave image generated"
+        "response": "Enclave image created"
       });
       return;
     }
