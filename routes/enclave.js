@@ -84,7 +84,7 @@ router.post('/build', (req, res, next) => {
       res
       .status(200)
       .json({
-        "response": "Enclave image created"
+        "response": "Enclave deployed"
       });
       return;
     }
