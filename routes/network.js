@@ -9,8 +9,8 @@ router.post('/start', (req, res, next) => {
     var processCount = 0;
 
     exec('ps -eaf | grep -c vsock', (error, stdout, stderr) => {
-        console.log("got some processes...");
         processCount = parseInt(stdout);
+        console.log("got some processes: ",processCount);
 
         if(processCount == 3) {
             console.log("process is running");
@@ -33,7 +33,7 @@ router.post('/start', (req, res, next) => {
                 return;
             });
         }
-        
+
     });
 });
 
