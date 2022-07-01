@@ -15,7 +15,7 @@ router.post('/start', (req, res, next) => {
           "response": "Proxy is on"
         });
         return;
-      } else {
+      } else if(parseInt(stdout) < 3){
         exec(command, (error, stdout, stderr) => {
             res
             .status(200)
@@ -25,6 +25,11 @@ router.post('/start', (req, res, next) => {
         });
         return;
       }
+      res
+      .status(500)
+      .json({
+        "response": "Network error"
+      });
   });
 
 });
