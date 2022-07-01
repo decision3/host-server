@@ -29,4 +29,5 @@ RUN chmod 777 ./run.sh
 RUN ./install_gh_cli_ubuntu.sh
 RUN ./add_key_github.sh _email _repo
 
-CMD run.sh
+CMD /home/run.sh
+
