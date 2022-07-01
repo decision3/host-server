@@ -30,4 +30,11 @@ RUN ./install_gh_cli_ubuntu.sh
 RUN ./add_key_github.sh _email _repo
 RUN ./traffic.sh
 
+RUN ip addr add 127.0.0.1/32 dev lo
+RUN ip link set dev lo up
+
+RUN echo "127.0.0.1   ip-ranges.amazonaws.com" >> /etc/hosts
+RUN touch ./libnsm.so
+RUN python3 ./traffic_forwarder.py 127.0.0.1 443 3 8001 &
+
 CMD _cmd
