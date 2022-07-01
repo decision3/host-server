@@ -25,7 +25,7 @@ touch ./secrets/github.token
 
 if [ ! -z "$cmd" ]
 then
-	sed -i "s|_cmd|$cmd|" Dockerfile
+	sed -i "s|_cmd|$cmd|" run.sh
 else
 	echo 'missing argument "--cmd"' &&  exit 128
 fi

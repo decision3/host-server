@@ -10,8 +10,8 @@ RUN chmod 0700 /root/.ssh
 COPY ./enclave/nitro/install_gh_cli_ubuntu.sh ./
 COPY ./enclave/nitro/secrets/github.token ./
 COPY ./enclave/nitro/add_key_github.sh ./
-COPY ./enclave/nitro/traffic.sh ./
 COPY ./enclave/nitro/traffic_forwarder.py ./
+COPY ./enclave/nitro/run.sh ./
 
 # Get packages
 RUN apt-get update
@@ -24,17 +24,9 @@ RUN apt-get install -f -y
 # auth github
 RUN chmod 777 ./install_gh_cli_ubuntu.sh
 RUN chmod 777 ./add_key_github.sh
-RUN chmod 777 ./traffic.sh
 RUN chmod 777 ./traffic_forwarder.py
+RUN chmod 777 ./run.sh
 RUN ./install_gh_cli_ubuntu.sh
 RUN ./add_key_github.sh _email _repo
-RUN ./traffic.sh
 
-RUN ip addr add 127.0.0.1/32 dev lo
-RUN ip link set dev lo up
-
-RUN echo "127.0.0.1   ip-ranges.amazonaws.com" >> /etc/hosts
-RUN touch ./libnsm.so
-RUN python3 ./traffic_forwarder.py 127.0.0.1 443 3 8001 &
-
-CMD _cmd
+CMD run.sh
