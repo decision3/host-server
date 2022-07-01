@@ -28,12 +28,12 @@ router.post('/start', (req, res, next) => {
             });
             return;
         });
-        console.log("exiting command");
+        console.log("exiting command 2");
     }
-    console.log("exiting command");
+    console.log("exiting command 1");
     return;
   });
-  console.log("exiting command");
+  console.log("exiting command 0");
 });
 
 module.exports = router;
