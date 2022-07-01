@@ -22,6 +22,7 @@ rm -f secrets/github.token
 touch ./secrets/github.token
 
 # setup vsock proxy
+# TODO: Add network configuration
 vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config your-vsock-proxy.yaml
 
 # assign values
