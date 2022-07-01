@@ -4,7 +4,7 @@ const { exec } = require("child_process");
 const utils = require('../utils.js');
 var config = require("../config.json");
 const enclave_path = './enclave/'+config.backend+"/";
-var backend = nulll
+var backend = null;
 
 switch (config.backend) {
   case "nitro":
