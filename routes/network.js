@@ -25,14 +25,14 @@ router.post('/start', (req, res, next) => {
             .json({
                 "response": "Proxy is on"
             });
+            return;
         });
-        return;
     }
     console.log("process is running/not running/who cares");
     res
     .status(500)
     .json({
-    "response": "Network error"
+    "response": "Unknwon error encountered"
     });
 
   });
