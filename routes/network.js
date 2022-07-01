@@ -5,11 +5,13 @@ const { Console } = require('console');
 
 router.post('/start', (req, res, next) => {
 
-  var command = 'vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config ~/host/enclave/nitro/vsock-proxy.yaml &';
-  var processCount = 0;
-  
-  exec('ps -eaf | grep -c vsock', (error, stdout, stderr) => {
-    processCount = parseInt(stdout);
+    var command = 'vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config ~/host/enclave/nitro/vsock-proxy.yaml &';
+    var processCount = 0;
+
+    exec('ps -eaf | grep -c vsock', (error, stdout, stderr) => {
+        processCount = parseInt(stdout);
+    });
+
     if(processCount == 3) {
         console.log("process is running");
         res
@@ -20,15 +22,15 @@ router.post('/start', (req, res, next) => {
         return;
     } else if(processCount < 3){
         console.log("process is not running");
-        // exec(command, (error, stdout, stderr) => {
-        //     console.log("starting the process");
-        //     res
-        //     .status(200)
-        //     .json({
-        //         "response": "Proxy is on"
-        //     });
-        //     return;
-        // });
+        exec(command, (error, stdout, stderr) => {
+            console.log("starting the process");
+            res
+            .status(200)
+            .json({
+                "response": "Proxy is on"
+            });
+            return;
+        });
         res
         .status(200)
         .json({
@@ -36,9 +38,7 @@ router.post('/start', (req, res, next) => {
         });
         return;
     }
-  });
 
-  console.log("exiting command 0");
 });
 
 module.exports = router;
