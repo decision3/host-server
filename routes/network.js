@@ -20,6 +20,7 @@ router.post('/start', (req, res, next) => {
     } else if(parseInt(stdout) < 3){
         console.log("process is not running");
         exec(command, (error, stdout, stderr) => {
+            console.log("starting the process");
             res
             .status(200)
             .json({
@@ -27,9 +28,12 @@ router.post('/start', (req, res, next) => {
             });
             return;
         });
+        console.log("exiting command");
     }
+    console.log("exiting command");
     return;
   });
+  console.log("exiting command");
 });
 
 module.exports = router;
