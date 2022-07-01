@@ -29,12 +29,6 @@ router.post('/start', (req, res, next) => {
             .json({
                 "response": "Proxy is on"
             });
-            return;
-        });
-        res
-        .status(200)
-        .json({
-            "response": "Proxy is on 2"
         });
         return;
     }
