@@ -6,7 +6,7 @@ router.post('/start', (req, res, next) => {
 
   var command = 'vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config ~/host/enclave/nitro/vsock-proxy.yaml &';
   
-  exec('ps -eaf | grep vsock', (error, stdout, stderr) => {
+  exec('ps -eaf | grep -c vsock', (error, stdout, stderr) => {
       res
       .status(200)
       .json({
