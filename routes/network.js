@@ -13,6 +13,7 @@ router.post('/start', (req, res, next) => {
         .json({
           "response": "Proxy is on"
         });
+        return;
       } else {
         exec(command, (error, stdout, stderr) => {
             res
@@ -20,7 +21,8 @@ router.post('/start', (req, res, next) => {
             .json({
               "response": "Proxy is on"
             });
-          });
+        });
+        return;
       }
   });
 
