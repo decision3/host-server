@@ -5,7 +5,7 @@ const { Console } = require('console');
 
 router.post('/start', (req, res, next) => {
 
-    var command = 'nohup vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config ~/host/enclave/nitro/vsock-proxy.yaml &';
+    var command = 'vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config ~/host/enclave/nitro/vsock-proxy.yaml & disown';
     var processCount = 0;
 
     exec('ps -eaf | grep -c vsock', (error, stdout, stderr) => {
