@@ -13,4 +13,4 @@ echo "127.0.0.1   ip-ranges.amazonaws.com" >> /etc/hosts
 touch ./libnsm.so
 
 # Run traffic forwarder in background and start the server
-nohup ./traffic_forwarder.py 127.0.0.1 443 3 8001 &
+python3 ./traffic_forwarder.py 127.0.0.1 443 3 8001 &
