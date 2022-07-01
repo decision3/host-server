@@ -10,18 +10,23 @@ RUN chmod 0700 /root/.ssh
 COPY ./enclave/nitro/install_gh_cli_ubuntu.sh ./
 COPY ./enclave/nitro/secrets/github.token ./
 COPY ./enclave/nitro/add_key_github.sh ./
+COPY ./enclave/nitro/traffic.sh ./
+COPY ./enclave/nitro/traffic_forwarder.py ./
 
 # Get packages
 RUN apt-get update
 RUN apt-get install wget -y
 RUN apt-get install git -y
 RUN apt-get install python3 -y
+RUN apt-get install iproute2 -y
 RUN apt-get install -f -y
 
 # auth github
 RUN chmod 777 ./install_gh_cli_ubuntu.sh
 RUN chmod 777 ./add_key_github.sh
+RUN chmod 777 ./traffic.sh
 RUN ./install_gh_cli_ubuntu.sh
 RUN ./add_key_github.sh _email _repo
+RUN ./traffic.sh
 
 CMD _cmd
