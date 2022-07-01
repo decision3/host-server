@@ -28,8 +28,8 @@ router.post('/start', (req, res, next) => {
             return;
         });
     }
+    return;
   });
-
 });
 
 module.exports = router;
