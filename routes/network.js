@@ -4,7 +4,7 @@ const { exec } = require("child_process");
 
 router.post('/start', (req, res, next) => {
 
-  var command = 'vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config /home/nitro/enclave/vsock-proxy.yaml &';
+  var command = 'vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config ~/host/enclave/nitro/vsock-proxy.yaml &';
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
