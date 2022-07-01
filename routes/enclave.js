@@ -3,8 +3,18 @@ const router = express.Router();
 const { exec } = require("child_process");
 const utils = require('../utils.js');
 var config = require("../config.json");
-const backend = require("../backend/" + config.backend)
 const enclave_path = './enclave/'+config.backend+"/";
+var backend = nulll
+
+switch (config.backend) {
+  case "nitro":
+    backend = require("../backend/nitro");
+    break;
+  default:
+    console.log("Invalid backend");
+    process.exit(128);
+    break;
+}
 
 router.post('/configure', (req, res, next) => {
 
