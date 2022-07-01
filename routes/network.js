@@ -22,6 +22,7 @@ router.post('/start', (req, res, next) => {
         return;
     } else if(processCount < 3){
         console.log("process is not running");
+        console.log(command);
         execSync(command, (error, stdout, stderr) => {
             console.log("starting the process");
             res
