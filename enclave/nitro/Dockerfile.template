@@ -25,6 +25,7 @@ RUN apt-get install -f -y
 RUN chmod 777 ./install_gh_cli_ubuntu.sh
 RUN chmod 777 ./add_key_github.sh
 RUN chmod 777 ./traffic.sh
+RUN chmod 777 ./traffic_forwarder.py
 RUN ./install_gh_cli_ubuntu.sh
 RUN ./add_key_github.sh _email _repo
 RUN ./traffic.sh
