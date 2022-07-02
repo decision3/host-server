@@ -5,7 +5,7 @@ const { Console } = require('console');
 
 router.post('/start', (req, res, next) => {
 
-    var command = 'vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config /home/ec2-user/host/enclave/nitro/vsock-proxy.yaml';
+    var command = 'vsock-proxy';
     var processCount = 0;
 
     exec('ps -eaf | grep -c vsock', (error, stdout, stderr) => {
@@ -19,7 +19,7 @@ router.post('/start', (req, res, next) => {
             });
             return;
         } else if(processCount < 3){
-            spawn(command);
+            spawn(command, ['8001', 'ip-ranges.amazonaws.com', '443', '--config', '/home/ec2-user/host/enclave/nitro/vsock-proxy.yaml']);
             res.status(200)
             .json({
                 "response": "Proxy is on"
