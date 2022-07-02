@@ -39,5 +39,10 @@
     "arguments": {
       "enclave-id": "${ENCLAVE_ID}"
     }
+  },
+  "enclaveId": {
+    "entrypoint": "echo $(nitro-cli describe-enclaves | jq -r \".[0].EnclaveID\")",
+    "arguments": {
+    }
   }
 }

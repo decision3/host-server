@@ -117,6 +117,22 @@ router.post('/run', (req, res, next) => {
   });
 });
 
+router.get('/', (req, res, next) => {
+  var cmdObj = backend.enclaveId;
+  var command = utils.createCommand(cmdObj);
+  
+  exec(command, (error, stdout, stderr) => {
+    if (stdout) {
+      res
+      .status(200)
+      .json({
+        "response": stdout
+      });
+      return;
+    }
+  });
+});
+
 router.post('/terminate', (req, res, next) => {
   var cmdObj = backend.enclaveTerminate;
   var command = utils.createCommand(cmdObj);

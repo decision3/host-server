@@ -1,8 +1,9 @@
 const createCommand = (obj) => {
     var cmdArray = [];
-    const args = obj.arguments;
     cmdArray.push(obj.entrypoint);
-    for (var key of Object.keys(args)) cmdArray.push("--"+key+" "+args[key]);
+    const args = obj.arguments;
+    // for (var key of Object.keys(args)) cmdArray.push("--"+key+" "+args[key]);
+    console.log("Arguments:", args);
     return cmdArray.join(" ");
 };
 
