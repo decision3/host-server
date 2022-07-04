@@ -31,6 +31,7 @@ router.post('/configure', (req, res, next) => {
   
   exec(command, (error, stdout, stderr) => {
     if (error) {
+      console.log(error);
       res
       .status(500)
       .json({
@@ -39,6 +40,7 @@ router.post('/configure', (req, res, next) => {
       return;
     }
     if (stderr) {
+      console.log(stderr);
       res
       .status(500)
       .json({
