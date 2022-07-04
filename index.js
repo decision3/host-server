@@ -1,3 +1,6 @@
+// pkg package.json --targets node16-linux --out-path ./bin/
+// ./bin/d3-host > /usr/tmp/d3-host.log &
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const router = express.Router();
