@@ -13,7 +13,7 @@ COPY ./enclave/nitro/add_key_github.sh ./
 COPY ./enclave/nitro/traffic_forwarder.py ./
 COPY ./enclave/nitro/run.sh ./
 
-# Get packages
+# Get packages (TODO: add support for custom packages)
 RUN apt-get update
 RUN apt-get install wget -y
 RUN apt-get install git -y
@@ -21,9 +21,6 @@ RUN apt-get install python3 -y
 RUN apt-get install iproute2 -y
 RUN apt-get install curl -y
 RUN apt-get install -f -y
-
-# Custom RUN commands
-
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install nodejs -y
 
