@@ -17,6 +17,7 @@ done
 
 # setup docker file and secrets
 cp ./Dockerfile.template ./Dockerfile
+cp ./run.template ./run.sh
 mkdir -p secrets
 rm -f secrets/github.token
 touch ./secrets/github.token

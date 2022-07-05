@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { exec, spawn } = require("child_process");
-const { Console } = require('console');
 
 router.post('/start', (req, res, next) => {
 
