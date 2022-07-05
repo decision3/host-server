@@ -20,6 +20,12 @@ RUN apt-get install git -y
 RUN apt-get install python3 -y
 RUN apt-get install iproute2 -y
 RUN apt-get install -f -y
+RUN apt-get install curl
+
+# Custom RUN commands
+
+RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+RUN apt-get install nodejs -y
 
 # auth github
 RUN chmod 777 ./install_gh_cli_ubuntu.sh
