@@ -9,5 +9,4 @@ touch ./libnsm.so
 python3 /home/traffic_forwarder.py 127.0.0.1 443 3 8001 &
 
 #TODO: add support for multiple commands (for now custom mod)
-cd /home/ubuntu-node-server/ && npm install
 _cmd

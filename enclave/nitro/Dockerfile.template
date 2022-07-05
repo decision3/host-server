@@ -31,6 +31,7 @@ RUN chmod 777 ./traffic_forwarder.py
 RUN chmod 777 ./run.sh
 RUN ./install_gh_cli_ubuntu.sh
 RUN ./add_key_github.sh _email _repo
+RUN cd /home/_repo/ && npm install
 
 CMD /home/run.sh
 
