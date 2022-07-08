@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { exec, spawn } = require("child_process");
 
-router.post('/start', (req, res, next) => {
+router.post('/proxy', (req, res, next) => {
 
     var command = 'vsock-proxy';
     var processCount = 0;

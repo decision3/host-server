@@ -8,7 +8,7 @@ var morgan = require('morgan')
 
 // Importing routes
 const enclavesRoute = require('./routes/enclave.js');
-const networkRoute = require('./routes/network.js');
+const proxyRoute = require('./routes/proxy.js');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/enclave', enclavesRoute);
-app.use('/network', networkRoute);
+app.use('/network', proxyRoute);
 
 app.use((err, req, res, next) => {
   console.log(err);

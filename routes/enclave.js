@@ -8,7 +8,7 @@ var backend = null;
 
 switch (config.backend) {
   case "nitro":
-    backend = require("../backend/nitro");
+    backend = require("../backends/nitro");
     break;
   default:
     console.log("Invalid backend");
