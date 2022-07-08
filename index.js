@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/enclave', enclavesRoute);
-app.use('/network', proxyRoute);
+app.use('/proxy', proxyRoute);
 
 app.use((err, req, res, next) => {
   console.log(err);
