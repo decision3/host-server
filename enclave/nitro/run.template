@@ -1,11 +1,11 @@
 #!/bin/sh
 
+#TODO: Add optional support for traffic forwarding
+
 # ip addr add 127.0.0.1/32 dev lo
 # ip link set dev lo up
-
 # echo "127.0.0.1   ip-ranges.amazonaws.com" >> /etc/hosts
 # touch ./libnsm.so
-
 # python3 /home/traffic_forwarder.py 127.0.0.1 3002 3 5001 &
 
 #TODO: add support for multiple commands (for now custom mod)

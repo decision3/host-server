@@ -10,7 +10,8 @@ RUN chmod 0700 /root/.ssh
 COPY ./enclave/nitro/install_gh_cli_ubuntu.sh ./
 COPY ./enclave/nitro/secrets/github.token ./
 COPY ./enclave/nitro/add_key_github.sh ./
-COPY ./enclave/nitro/traffic_forwarder.py ./
+# Optional support for traffic forwarding...
+# COPY ./enclave/nitro/traffic_forwarder.py ./
 COPY ./enclave/nitro/run.sh ./
 
 # Get packages (TODO: add support for custom packages)
@@ -27,7 +28,8 @@ RUN apt-get install nodejs -y
 # auth github
 RUN chmod 777 ./install_gh_cli_ubuntu.sh
 RUN chmod 777 ./add_key_github.sh
-RUN chmod 777 ./traffic_forwarder.py
+# Optional support for traffic forwarding...
+# RUN chmod 777 ./traffic_forwarder.py
 RUN chmod 777 ./run.sh
 RUN ./install_gh_cli_ubuntu.sh
 RUN ./add_key_github.sh _email _repo
