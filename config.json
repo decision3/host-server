@@ -1,7 +1,7 @@
 {
     "platform": "AWS",
     "backend": "nitro",
-    "email": "abhinit.ambastha@gmail.com",
+    "email": "abhinit@decision3.ai",
     "repo": "ubuntu-python-server",
     "cmd": "\"python3 /home/ubuntu-python-server/server.py\"",
     "token": "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"
