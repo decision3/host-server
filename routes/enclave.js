@@ -51,7 +51,7 @@ router.post('/configure', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": "Safe configured"
+      "response": "Enclave configured"
     });
   });
 });
@@ -82,7 +82,7 @@ router.post('/image', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": "Safe image created"
+      "response": "Enclave image created"
     });
   });
 });
@@ -96,7 +96,7 @@ router.post('/build', (req, res, next) => {
       res
       .status(200)
       .json({
-        "response": "Safe deployed"
+        "response": "Enclave deployed"
       });
       return;
     }
@@ -112,7 +112,7 @@ router.post('/run', (req, res, next) => {
       res
       .status(200)
       .json({
-        "response": "Safe running"
+        "response": "Enclave running"
       });
       return;
     }
@@ -144,7 +144,7 @@ router.post('/terminate', (req, res, next) => {
       res
       .status(200)
       .json({
-        "response": "Safe terminated"
+        "response": "Enclave terminated"
       });
       return;
     }
