@@ -2,7 +2,7 @@
 
 The purpose of the host server is to expose an API for the Nitro CLI. The host server is installed on the host instance on which the enclave needs to be deployed. Ensure that the instance is enabled to be used for [Nitro](https://aws.amazon.com/ec2/nitro/). We currently support only AWS Nitro, aiming to expand to GCP next.
 
-Join our discord server: Discord server: https://discord.gg/uKfGpum9nF 
+**Join our discord server: Discord server: https://discord.gg/uKfGpum9nF**
 
 Currently it supports the following endpoints:
 
