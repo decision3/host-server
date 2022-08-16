@@ -3,6 +3,8 @@ import sys
 import threading
 import time
 
+# TODO: This is a basic traffic forwarder template from AWS, will be removed from future releases
+
 
 def server(local_ip, local_port, remote_cid, remote_port):
     try:

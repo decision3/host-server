@@ -5,13 +5,8 @@ const socket = require('socket');
 const sys = require('sys');
 
 router.post('/call', (req, res, next) => {
-        // # Connect to the remote endpoint with CID and PORT specified.
-        // try:
-        //     self.sock = socket.socket(socket.AF_VSOCK, socket.SOCK_STREAM)
-        //     self.sock.settimeout(self.conn_timeout)
-        //     self.sock.connect(endpoint)
-        // except ConnectionResetError as e:
-        //     print("Caught error ", str(e.strerror)," ",str(e.errno))
+
+    // TODO: implement the socket interface for communicating with the enclave
 
     res.status(200)
     .json({
