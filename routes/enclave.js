@@ -92,6 +92,7 @@ router.post('/build', (req, res, next) => {
   var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
+    console.log("PCR registers: ", stdout);
     if (stdout) {
       res
       .status(200)
@@ -149,6 +150,15 @@ router.post('/terminate', (req, res, next) => {
       return;
     }
   });
+});
+
+router.post('/attest', (req, res, next) => {
+  res
+  .status(200)
+  .json({
+    "response": "attested"
+  });
+  return;
 });
 
 module.exports = router;

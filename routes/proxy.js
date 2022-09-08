@@ -6,7 +6,7 @@ router.post('/', (req, res, next) => {
 
     // TODO: this is just a template, need to work on this
 
-    var command = 'vsock-proxy';
+    var command = 'sudo systemctl enable nitro-enclaves-vsock-proxy.service && sudo systemctl start nitro-enclaves-vsock-proxy.service';
     var processCount = 0;
 
     exec('ps -eaf | grep -c vsock', (error, stdout, stderr) => {
@@ -18,7 +18,7 @@ router.post('/', (req, res, next) => {
             });
             return;
         } else if(processCount < 3){
-            spawn(command, ['8001', 'www.decision3.ai', '443', '--config', '/home/ec2-user/host/enclave/nitro/vsock-proxy.yaml']);
+            exec(command);
             res.status(200)
             .json({
                 "response": "Proxy is on"
