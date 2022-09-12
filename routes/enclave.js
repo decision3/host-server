@@ -92,12 +92,13 @@ router.post('/build', (req, res, next) => {
   var command = utils.createCommand(cmdObj);
   
   exec(command, (error, stdout, stderr) => {
-    console.log("PCR registers: ", stdout);
+    // console.log("PCR registers: ", stdout);
     if (stdout) {
       res
       .status(200)
       .json({
-        "response": "Oracle deployed"
+        "response": "Oracle deployed",
+        "PCR": stdout
       });
       return;
     }
