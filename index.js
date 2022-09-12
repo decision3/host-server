@@ -10,7 +10,7 @@ const proxyRoute = require('./routes/proxy.js');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(morgan('common'))
+app.use(morgan('tiny'))
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
