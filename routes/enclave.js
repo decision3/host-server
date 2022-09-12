@@ -51,7 +51,7 @@ router.post('/configure', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": "Enclave configured"
+      "response": "Oracle configured"
     });
   });
 });
@@ -82,7 +82,7 @@ router.post('/image', (req, res, next) => {
     res
     .status(200)
     .json({
-      "response": "Enclave image created"
+      "response": "Oracle image created"
     });
   });
 });
@@ -97,7 +97,7 @@ router.post('/build', (req, res, next) => {
       res
       .status(200)
       .json({
-        "response": "Enclave deployed"
+        "response": "Oracle deployed"
       });
       return;
     }
@@ -113,7 +113,7 @@ router.post('/run', (req, res, next) => {
       res
       .status(200)
       .json({
-        "response": "Enclave running"
+        "response": "Oracle running"
       });
       return;
     }
@@ -145,7 +145,7 @@ router.post('/terminate', (req, res, next) => {
       res
       .status(200)
       .json({
-        "response": "Enclave terminated"
+        "response": "Oracle terminated"
       });
       return;
     }
