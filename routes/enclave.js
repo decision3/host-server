@@ -98,7 +98,7 @@ router.post('/build', (req, res, next) => {
       .status(200)
       .json({
         "response": "Oracle deployed",
-        "PCR": stdout
+        "pcr": stdout
       });
       return;
     }
